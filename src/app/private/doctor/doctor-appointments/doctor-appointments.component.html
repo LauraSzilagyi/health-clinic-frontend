@@ -1,0 +1,75 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+<link rel="stylesheet" href="/assets/css/style2.1.css">
+<link href="/assets/css/style2.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/20b35a8f91.js" crossorigin="anonymous"></script>
+<html lang="en" class=" js">
+
+<div class="calendar">
+  <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
+    <div class="cd-schedule__timeline">
+      <ul>
+        <li><span>09:00</span></li>
+        <li><span>09:30</span></li>
+        <li><span>10:00</span></li>
+        <li><span>10:30</span></li>
+        <li><span>11:00</span></li>
+        <li><span>11:30</span></li>
+        <li><span>12:00</span></li>
+        <li><span>12:30</span></li>
+        <li><span>13:00</span></li>
+        <li><span>13:30</span></li>
+        <li><span>14:00</span></li>
+        <li><span>14:30</span></li>
+        <li><span>15:00</span></li>
+        <li><span>15:30</span></li>
+        <li><span>16:00</span></li>
+        <li><span>16:30</span></li>
+        <li><span>17:00</span></li>
+        <li><span>17:30</span></li>
+        <li><span>18:00</span></li>
+      </ul>
+    </div> <!-- .cd-schedule__timeline -->
+
+    <div class="cd-schedule__events">
+      <ul>
+        <li *ngFor="let appointment of appointments" class="cd-schedule__group">
+          <div class="cd-schedule__top-info"><span>{{appointment.day}}</span></div>
+
+          <ul>
+            <li *ngFor="let schedule of appointment.schedules; let indexOfelement=index;" class="cd-schedule__event">
+              <a [attr.data-start]=schedule.dataStart [attr.data-end]=schedule.dataEnd
+                 data-content="event-abs-circuit"
+                 [attr.data-event]="'event-' + (indexOfelement + 1)" href="#0">
+                <em class="cd-schedule__name">{{schedule.name}}</em>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cd-schedule-modal">
+      <header class="cd-schedule-modal__header">
+        <div class="cd-schedule-modal__content">
+          <span class="cd-schedule-modal__date"></span>
+          <h3 class="cd-schedule-modal__name"></h3>
+        </div>
+
+        <div class="cd-schedule-modal__header-bg"></div>
+      </header>
+
+      <div class="cd-schedule-modal__body">
+        <div class="cd-schedule-modal__event-info"></div>
+        <div class="cd-schedule-modal__body-bg"></div>
+      </div>
+
+      <a href="#0" class="cd-schedule-modal__close text-replace">Close</a>
+    </div>
+
+    <div class="cd-schedule__cover-layer"></div>
+  </div>
+
+</div>
+</html>

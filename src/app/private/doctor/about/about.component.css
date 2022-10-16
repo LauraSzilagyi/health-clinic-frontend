@@ -1,0 +1,11 @@
+::-webkit-file-upload-button {
+  display: none;
+}
+
+::file-selector-button {
+  display: none;
+}
+
+#doctorImage {
+  visibility: hidden;
+}

@@ -1,0 +1,121 @@
+<app-admin-sidebar></app-admin-sidebar>
+
+
+<div class="main-block">
+  <div id="notification" class="notification success">
+    <p *ngIf="userOperation.startsWith('Update')">Doctor successfully updated</p>
+    <p *ngIf="!userOperation.startsWith('Update')">Doctor successfully added</p>
+  </div>
+  <form action="/">
+    <h1>{{userOperation}}</h1>
+    <br>
+    <fieldset>
+
+      <legend>
+        <h3>Account Details</h3>
+      </legend>
+
+      <div class="account-details">
+        <div><label>Email*</label><input type="text" id="emailInput1" name="name" value="{{doctor.email}}" required>
+        </div>
+        <div><label>Password*</label><input type="password" id="passwordInput1" value="{{doctor.password}}" name="name"
+                                            required></div>
+        <div><label>Repeat email*</label><input type="text" id="emailInput2" name="name" value="{{doctor.email}}"
+                                                required></div>
+        <div><label>Repeat password*</label><input type="password" id="passwordInput2" value="{{doctor.password}}"
+                                                   name="name" required></div>
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <h3>Personal Details</h3>
+      </legend>
+      <div class="personal-details">
+        <div>
+          <div><label>Name*</label><input id="doctorName" type="text" name="name" value="{{doctor.name}}" required>
+          </div>
+          <div><label>Phone*</label><input type="text" id="phoneInput" name="name" value="{{doctor.phone}}" required>
+          </div>
+          <div><label>Address</label><input type="text" id="addressInput" name="name" value="{{doctor.address}}"></div>
+        </div>
+
+        <div>
+
+          <div class="birthdate">
+            <label>Birthdate*</label>
+            <input style="width: 380px; height: 40px" type="date" id="birthdateInput" name="trip-start"
+                   value="{{doctor.birthdate}}"
+                   min="1950-01-01" max="2018-12-31">
+          </div>
+
+          <div class="image-container">
+            <img class="image-preview" id="blah" src="{{imageSrc || doctor.image}}" alt="your image"/>
+            <label for="doctorImage" class="btn overflow-button">Select Image</label>
+            <input id="doctorImage" type="file" (change)="readURL($event);" name="name" required>
+          </div>
+
+
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>
+        <h3>Expertise</h3>
+      </legend>
+      <div class="account-details">
+        <div><label>Department *</label>
+          <select id="department-select" class="" style="height: 55px;">
+            <option selected>Choose Department</option>
+            <option *ngFor="let department of departments;" value="{{department}}">{{department}}</option>
+          </select>
+        </div>
+        <div><label>Specialist *</label><input id="specialistInput" type="text" name="name"
+                                               value="{{doctor.specialist}}" required></div>
+        <div><label>Description *</label><textarea id="descriptionInput" type="text" name="name"
+                                                   value="{{doctor.description}}" required></textarea></div>
+        <div><label>Experience </label><input id="experienceInput" type="text" name="name"
+                                              value="{{doctor.experience}}"></div>
+
+      </div>
+    </fieldset>
+
+
+
+    <fieldset *ngIf="userOperation.startsWith('Update')">
+      <legend>
+        <h3>Availability</h3>
+      </legend>
+      <br><br>
+      <div>
+
+        <div *ngFor="let weekday of weekdays" class="availability-select">
+          <div>
+            <label class="conty"><p>{{weekday}}</p>
+              <input type="checkbox" id="{{weekday}}-checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="custom-select" style="width:200px;">
+            <select id="{{weekday}}-availability-start">
+              <option value="0">Start:</option>
+              <option *ngFor="let hour of hours" value="{{hour}}">{{hour}}</option>
+            </select>
+          </div>
+
+          <div class="custom-select" style="width:200px;">
+            <select id="{{weekday}}-availability-end">
+              <option value="0">End:</option>
+              <option *ngFor="let hour of hours" value="{{hour}}">{{hour}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+
+    <button id="save-button" type="button" class="savebtn">Save</button>
+  </form>
+</div>

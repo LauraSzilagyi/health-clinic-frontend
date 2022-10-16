@@ -1,0 +1,17 @@
+<app-admin-sidebar></app-admin-sidebar>
+
+
+<div class="card-wrapper">
+  <div *ngFor="let doctor of doctors" class="card">
+    <img src="{{doctor.image}}" alt="Avatar">
+    <div class="container">
+      <h4>{{doctor.name}}</h4></div>
+    <div class="btn-up-del">
+      <a href="user.html/{{doctor.id}}" class="btn-update"><p>Update</p></a>
+    </div>
+    <div class="btn-up-del">
+      <a href="javascript:void(0)" class="btn-delete" (click)="deleteDoctor(doctor.id)"><p>Delete</p></a>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,83 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+
+
+<div class="sidebar2">
+
+  <img class="docimg" src="{{imageSrc || doctor.image}}" alt="Image">
+  <div class="change">
+<!--    <a href="" class="btn btn-primary mt-auto">CHANGE IMAGE</a>-->
+    <label for="doctorImage" class="btn btn-primary mt-auto">CHANGE IMAGE</label>
+    <input id="doctorImage" class="btn btn-primary mt-auto" type="file" (change)="readURL($event);" name="name" required>
+  </div>
+  <h4 class="sidebar2-text">{{doctor.name}}</h4>
+  <p class="sidebar2-text">
+    {{doctor.description}}
+  </p>
+  <div class="d-flex justify-content-center mb-5">
+    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
+    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+
+</div>
+<div class="content">
+
+  <div class="bg-white pt-5">
+
+    <h2>Personal Info</h2>
+    <ul>
+      <li>
+        <span>Name</span>
+        : {{doctor.name}}
+      </li>
+      <li>
+        <span>BirthDate</span>
+        : {{doctor.birthdate}}
+      </li>
+      <li>
+        <span>Adress</span>
+        : {{doctor.address}}
+      </li>
+      <li>
+        <span>Phone</span>
+        {{doctor.phone}}
+      </li>
+      <li>
+        <span>Email</span>
+        : {{doctor.email}}
+      </li>
+
+    </ul>
+
+    <h2>Expertise</h2>
+    <ul>
+      <li>
+        <span>Department</span>
+        : {{doctor.department}}
+      </li>
+      <li>
+        <span>Specialist</span>
+        : {{doctor.specialist}}
+      </li>
+
+      <li>
+        <span>Experience</span>
+        : {{doctor.experience}} years
+      </li>
+
+
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+
+</div>
